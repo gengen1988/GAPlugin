@@ -29,17 +29,7 @@
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
         </config-file>
 
-        <config-file target="res/values/analytics.xml" parent="/*">
-            <?xml version="1.0" encoding="utf-8" ?>
-            <resources>
-                <!--Replace placeholder ID with your tracking ID-->
-                <string name="ga_trackingId">UA-XXXX-Y</string>
-                <bool name="ga_autoActivityTracking">true</bool>
-                <bool name="ga_reportUncaughtExceptions">true</bool>
-                <integer name="ga_dispatchPeriod">30</integer>
-            </resources>
-        </config-file>
-
+        <source-file src="src/android/analytics.xml" target-dir="res/values" />
         <source-file src="src/android/GAPlugin.java" target-dir="src/com/adobe/plugins" />
         <source-file src="src/android/libGoogleAnalyticsServices.jar" target-dir="libs" />
     </platform>
