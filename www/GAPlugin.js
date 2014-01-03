@@ -54,10 +54,12 @@
         return cordovaRef.exec(this.success, this.fail, 'GAPlugin', 'sendEvent', [category, action, label, value]);
     };
 
-    EasyTracker.prototype.success = function(first_argument) {
+    EasyTracker.prototype.success = function(message) {
+        console.log(message);
     };
 
-    EasyTracker.prototype.fail = function(first_argument) {
+    EasyTracker.prototype.fail = function(err) {
+        throw new Error(err);
     };
  
     if (cordovaRef && cordovaRef.addConstructor) {
