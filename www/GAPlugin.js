@@ -50,15 +50,19 @@
         return cordovaRef.exec(this.success, this.fail, 'GAPlugin', 'sendView', [screenName]);
     };
 
-    EasyTracker.prototype.sendEvent = function(category, action, label, value) {
+    EasyTracker.prototype.sendEvent = function (category, action, label, value) {
         return cordovaRef.exec(this.success, this.fail, 'GAPlugin', 'sendEvent', [category, action, label, value]);
     };
 
-    EasyTracker.prototype.success = function(message) {
+    EasyTracker.prototype.sendTiming = function(category, intervalInMilliseconds, name, label) {
+        return cordovaRef.exec(this.success, this.fail, 'GAPlugin', 'sendTiming', [category, intervalInMilliseconds, name, label]);
+    };
+
+    EasyTracker.prototype.success = function (message) {
         console.log(message);
     };
 
-    EasyTracker.prototype.fail = function(err) {
+    EasyTracker.prototype.fail = function (err) {
         throw new Error(err);
     };
  

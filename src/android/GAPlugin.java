@@ -124,12 +124,26 @@ public class GAPlugin extends CordovaPlugin {
 					args.getString(2),
 					args.getLong(3)
 				).build());
-				callback.success("sendEvent - category = " + args.getString(0) + "; action = " + args.getString(1) + "; label = " + args.getString(2) + "; value = " + args.getInt(3));
+				callback.success("sendEvent - category = " + args.getString(0) + "; action = " + args.getString(1) + "; label = " + args.getString(2) + "; value = " + args.getLong(3));
 				return true;
 			} catch (Exception e) {
 				callback.error(e.getMessage());
 			}
+		} else if (action.equals("sendTiming")) {
+			try {
+				tracker.send(MapBuilder.createTiming(
+					args.getString(0),  // Timing category (required)
+					args.getLong(1),    // Timing interval in milliseconds (required)
+					args.getString(2),  // Timing name
+					args.getString(3)   // Timing label
+                ).build());
+                callback.success("sendTiming - category = " + args.getString(0) + "; value = " + args.getLong(1) + "; var = " + args.getString(2) + "; label = " + args.getString(3));
+                return true;
+			} catch (Exception e) {
+				callback.error(e.getMessage());
+			}
 		}
+
 		return false;
 	}
 }
