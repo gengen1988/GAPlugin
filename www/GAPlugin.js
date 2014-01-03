@@ -43,6 +43,22 @@
     GAPlugin.prototype.exit = function (success, fail) {
         return cordovaRef.exec(success, fail, 'GAPlugin', 'exitGA', []);
     };
+
+    function EasyTracker() {}
+
+    EasyTracker.prototype.sendView = function (screenName) {
+        return cordovaRef.exec(this.success, this.fail, 'GAPlugin', 'sendView', [screenName]);
+    };
+
+    EasyTracker.prototype.sendEvent = function(category, action, label, value) {
+        return cordovaRef.exec(this.success, this.fail, 'GAPlugin', 'sendEvent', [category, action, label, value]);
+    };
+
+    EasyTracker.prototype.success = function(first_argument) {
+    };
+
+    EasyTracker.prototype.fail = function(first_argument) {
+    };
  
     if (cordovaRef && cordovaRef.addConstructor) {
         cordovaRef.addConstructor(init);
@@ -57,6 +73,7 @@
         if (!window.plugins.gaPlugin) {
             window.plugins.gaPlugin = new GAPlugin();
         }
+        window.EasyTracker = new EasyTracker();
     }
 
     if (typeof module != 'undefined' && module.exports) {
