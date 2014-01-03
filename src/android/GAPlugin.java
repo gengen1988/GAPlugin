@@ -61,7 +61,10 @@ public class GAPlugin extends CordovaPlugin {
 		} else if (action.equals("setVariable")) {
 			try {
 				// v3
-				tracker.set(Fields.customDimension(args.getInt(0)), args.getString(1));
+				tracker.set(Fields.customDimension(
+					args.getInt(0)),
+					args.getString(1)
+				);
 				
 				// v2
 				//tracker.setCustomDimension(args.getInt(0), args.getString(1));
@@ -74,7 +77,10 @@ public class GAPlugin extends CordovaPlugin {
 		else if (action.equals("setDimension")) {
 			try {
 				// v3
-				tracker.set(Fields.customDimension(args.getInt(0)), args.getString(1));
+				tracker.set(Fields.customDimension(
+					args.getInt(0)),
+					args.getString(1)
+				);
 				
 				// v2
 				//tracker.setCustomDimension(args.getInt(0), args.getString(1));
@@ -87,7 +93,10 @@ public class GAPlugin extends CordovaPlugin {
 		else if (action.equals("setMetric")) {
 			try {
 				// v3
-				tracker.set(Fields.customMetric(args.getInt(0)), args.getString(1));
+				tracker.set(Fields.customMetric(
+					args.getInt(0)),
+					args.getString(1)
+				);
 				
 				// v2
 				//tracker.setCustomMetric(args.getInt(0), args.getLong(1));
